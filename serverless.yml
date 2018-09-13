@@ -1,0 +1,51 @@
+# ----------------------------------------------------------------------------------//
+# Serverless Accounts Service
+# Charlie (( BETA v2.1 ))
+# CRKS | May 20, 2018 | Updated: August 9, 2018
+# ----------------------------------------------------------------------------------//
+
+service: accounts
+app: charlie
+tenant: davidmichael
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  timeout: 300
+  stage: ${file(./meta.json):stage}
+  region: ${file(./meta.json):region}
+
+functions:
+  app:
+    handler: services/app.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+  timer:
+    handler: services/timer.handler
+    events:
+      - schedule:
+          rate: rate(2 minutes)
+          enabled: true
+  analytics:
+    handler: services/analytics.handler
+    events:
+      - schedule:
+          rate: rate(24 hours)
+          enabled: true
+  trial:
+    handler: services/trial.handler
+    events:
+      - schedule:
+          rate: rate(12 hours)
+          enabled: true
+  login:
+    handler: services/login.handler
+    events:
+      - schedule:
+          rate: rate(8 hours)
+          enabled: true
+
+package:
+  exclude:
+    - db

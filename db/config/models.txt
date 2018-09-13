@@ -1,0 +1,9 @@
+../node_modules/.bin/sequelize model:generate --name Account --attributes enabled:boolean,trial:boolean,username:string,email:string,passphrase:string,accounts:string,region:string,loggedIn:boolean,cookie:text,follow:boolean,scrape:boolean,timer:integer
+
+../node_modules/.bin/sequelize model:generate --name Follow --attributes username:string,parent:string,account:string,followed:boolean,unfollowed:boolean
+
+../node_modules/.bin/sequelize model:generate --name Analytic --attributes username:string,followers:integer,following:integer
+
+../node_modules/.bin/sequelize db:migrate
+
+../node_modules/.bin/sequelize db:migrate:undo

@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "crks",
+    "password": "Kena0117",
+    "database": "charlie",
+    "host": "charlie.cr6xznsz7nwn.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "crks",
+    "password": "Kena0117",
+    "database": "charlie",
+    "host": "charlie.cr6xznsz7nwn.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "crks",
+    "password": "Kena0117",
+    "database": "charlie",
+    "host": "charlie.cr6xznsz7nwn.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  }
+}
